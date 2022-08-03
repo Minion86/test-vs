@@ -16,9 +16,9 @@ export class AlbumComponent implements OnInit {
 
 
   ngOnInit(): void {
-    //// this.imgurApiService.getAlbums().subscribe((resp: any) => {
-    // this.albums = resp;
-    // });
+    this.imgurApiService.getAlbums().subscribe((resp: any) => {
+      this.albums = resp;
+    });
   }
 
   goToGallery(gallery: any, $event: any) {

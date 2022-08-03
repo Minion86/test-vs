@@ -6,7 +6,7 @@
         <div
         class="col-lg-3 col-md-6 col-sm-12 border m-3"
         style="height:10vh"
-        *ngFor="let item of albums2.data"
+        *ngFor="let item of albums.data"
       >
       <p>{{ item.title }}</p>
        <button type="button" class="btn btn-info" (click)="goToGallery(item.images,$event)" > See gallery</button>
