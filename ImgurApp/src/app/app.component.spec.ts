@@ -1,31 +1,13 @@
 import { TestBed } from '@angular/core/testing';
+import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
-      ],
-    }).compileComponents();
-  });
-
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'ImgurApp'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('ImgurApp');
-  });
-
-  it('should render title', () => {
+  it('creates the root and routing outlet', async () => {
+    await TestBed.configureTestingModule({ declarations: [AppComponent], imports: [RouterModule.forRoot([])] }).compileComponents();
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('ImgurApp app is running!');
+    expect(fixture.componentInstance.title).toBe('ImgurApp');
+    expect(fixture.nativeElement.querySelector('router-outlet')).toBeTruthy();
   });
 });
