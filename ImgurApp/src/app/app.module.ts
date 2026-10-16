@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AlbumComponent } from './album/album.component';
@@ -15,7 +16,7 @@ import { AppRoutingModule } from './app-routing.module';
     GalleryComponent
   ],
   imports: [
-    BrowserModule,HttpClientModule,AppRoutingModule
+    BrowserModule,FormsModule,HttpClientModule,AppRoutingModule
   ],
   providers: [ImgurApiService],
   bootstrap: [AppComponent]

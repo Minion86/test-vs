@@ -3,6 +3,7 @@ import { ImgurApiService } from '../imgur-api.service';
 import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
+  standalone: false,
   selector: 'app-album',
   templateUrl: './album.component.html',
   styleUrls: ['./album.component.scss']
@@ -11,7 +12,7 @@ export class AlbumComponent implements OnInit {
 
   constructor(private imgurApiService: ImgurApiService, private router: Router) { }
 
-  albums;
+  albums: any = { data: [] };
 
 
 

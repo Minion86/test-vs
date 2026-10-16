@@ -4,6 +4,7 @@ import { ImgurApiService } from '../imgur-api.service';
 
 
 @Component({
+  standalone: false,
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.scss']
@@ -11,7 +12,7 @@ import { ImgurApiService } from '../imgur-api.service';
 export class GalleryComponent implements OnInit {
 
   constructor(private actRoute: ActivatedRoute, private imgurApiService: ImgurApiService) { }
-  galleries;
+  galleries: any[] = [];
   discountSelected: number = 0;
   typeSelected: string = '';
 
@@ -41,7 +42,7 @@ export class GalleryComponent implements OnInit {
 
   ngOnInit(): void {
     const myArray = this.actRoute.snapshot.queryParamMap.get('myArray');
-    this.galleries = JSON.parse(myArray);
+    this.galleries = myArray ? JSON.parse(myArray) : [];
     console.log(JSON.stringify(this.galleries));
 
   }
